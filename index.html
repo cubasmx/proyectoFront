@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@500&family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <title>Pide Baguettes</title>
+
+</head>
+<body>
+    <h1>Bienvenido a nuestro servicio de orden de baguettes</h1>
+    <h3>Por favor, completa la siguiente información para realizar tu orden:</h3>
+    <form id="orderForm">
+        <label for="nombre" class="required">Nombre*</label>
+        <input type="text" id="nombre" name="nombre placeholder="Ejemplo: Juan Pérez" required autocomplete="name">
+        <p id="nombreError" class="error-message"></p>
+      
+        <label for="email" class="required">Correo Electrónico*</label>
+        <input type="email" id="email" name="email" placeholder="Ejemplo: correo@ejemplo.com" required autocomplete="email">
+        <p id="emailError" class="error-message"></p>
+        
+        <label for="telefono" class="required">Número Telefónico*</label>
+        <input type="tel" id="telefono" name="telefono" placeholder="Ejemplo: (123) 456-7890" required>
+        <p id="telefonoError" class="error-message"></p>
+
+        <label for="tipoPan" class="required">Tipo de Pan*</label>
+        <select id="tipoPan" name="tipoPan" required>
+            <option value="" disabled selected>-Selecciona el tipo de pan-</option>
+            <option value="panAjo">Pan de Ajo</option>
+            <option value="panMiel">Pan de Miel con Avena</option>
+            <option value="panCenteno">Pan de Centeno y Hierbas Finas</option>
+            <option value="panIntegral">Pan Integral</option>
+        </select>
+        <p id="tipoPanError" class="error-message"></p>
+        
+        <label for="tipoBaguette" class="required">Tipo de Baguette*</label>
+        <select id="tipoBaguette" name="tipoBaguette" required>
+            <option value="" disabled selected>-Selecciona el tipo de baguette-</option>
+            <option value="italiano">Italiano</option>
+            <option value="polloPlancha">Pollo a la Plancha</option>
+            <option value="polloNaranja">Pollo a la Naranja</option>
+            <option value="jamonQueso">Jamón con Queso</option>
+            <option value="veggie">Veggie</option>
+            <option value="vegan">Vegan</option>
+        </select>
+        <p id="tipoBaguetteError" class="error-message"></p>
+      
+        <p>Toppings: (<i>Opcional<i>)</p>
+        <label for="tomate"><input type="checkbox" id="tomate" value="tomate" name="tomate">Tomate</label><br>
+        <label for="cebolla"><input type="checkbox" id="cebolla" value="cebolla" name="cebolla">Cebolla</label><br>
+        <label for="lechuga"><input type="checkbox" id="lechuga" value="lechuga" name="lechuga">Lechuga</label><br>
+        <label for="aguacate"><input type="checkbox" id="aguacate" value="aguacate" name="aguacate">Aguacate</label><br>
+        <label for="aderezo"><input type="checkbox" id="aderezo" value="aderezo" name="aderezo">Aderezo de la Casa</label><br>
+        <label for="crema"><input type="checkbox" id="crema" value="crema" name="crema">Crema</label><br>
+        <label for="chile"><input type="checkbox" id="chile" value="chile" name="chile">Chile</label><br>
+        <label for="salsaPicante"> <input type="checkbox" id="salsaPicante" value="salsaPicante" name="salsaPicante">Salsa Picante</label><br>
+        <label for="salsaDulce"><input type="checkbox" id="salsaDulce" value="salsaDulce" name="salsaDulce">Salsa Dulce</label><br>
+        <label for="cebollaCaramelizada"><input type="checkbox" id="cebollaCaramelizada" value="cebollaCaramelizada" name="cebollaCaramelizada">Cebolla Caramelizada</label><br>
+        <label for="tocino"><input type="checkbox" id="tocino" value="tocino" name="tocino">Tocino en Trozos</label><br>
+        <br>
+        
+        <label for="cubiertos" class="required">¿Incluir Cubiertos?*</label>
+        <select id="cubiertos" name="cubiertos" required>
+            <option value="" disabled selected>Seleccione una opción</option>
+            <option value="si">Sí</option>
+            <option value="no">No</option>
+        </select>
+        <br>
+        <p id="cubiertosError" class="error-message"></p>
+       
+        <label for="instrucciones">Instrucciones Especiales</label>
+        <textarea id="instrucciones" name="instrucciones" placeholder="Ejemplo: Pártanlo a la mitad, por favor"></textarea>
+        <p id="instruccionesError" class="error-message"></p>
+        <br><br>
+        <label for="terminos"><input type="checkbox" id="terminos">Acepto los <a href="#">términos y condiciones</a></label>
+        <p id="terminosError" class="error-message"></p>
+        <br>
+        <input type="submit"></imput>
+    </form>
+    <br>
+    <h2>Respuestas</h2>
+    <div id="respuestas">
+         <!-- Aquí se mostrarán las respuestas en tiempo real -->
+    </div>
+
+    <script src="catalogoRegistros.js">
+        
+      </script>
+
+    
+    
+</body>
+</html>
+
