@@ -2,8 +2,17 @@
 document.addEventListener("DOMContentLoaded", function() {
     const form = document.getElementById("orderForm");
     const verifyButton = document.getElementById("verifyOrder");
-    const submitButton = document.getElementById("submitButton");
     const showConfirmationButton = document.getElementById("showConfirmation");
+    const respuestasDiv = document.getElementById("respuestas");
+    const botonBorrar = document.getElementById("borrar-respuesta");
+
+    // agrega el elemento botonBorrar como hijo al final del elemento respuestasDiv
+
+    respuestasDiv.appendChild(botonBorrar);
+
+    //agregar un listener al boton de borrar respuestas.
+    botonBorrar.addEventListener("click", borrarRespuesta);
+
 
     verifyButton.addEventListener("click", function(event) {
         event.preventDefault();
@@ -136,15 +145,59 @@ document.addEventListener("DOMContentLoaded", function() {
         const instrucciones = document.getElementById("instrucciones").value;
 
         const message = `Pedido Confirmado:
-Nombre: ${nombre}
-Correo Electrónico: ${email}
-Teléfono: ${telefono}
-Tipo de Pan: ${tipoPanValue}
-Tipo de Baguette: ${tipoBaguette}
-Toppings: ${toppings || "Ninguno"}
-Incluir Cubiertos: ${cubiertos}
-Instrucciones Especiales: ${instrucciones || "Ninguna"}`;
+            Nombre: ${nombre}
+            Correo Electrónico: ${email}
+            Teléfono: ${telefono}
+            Tipo de Pan: ${tipoPanValue}
+            Tipo de Baguette: ${tipoBaguette}
+            Toppings: ${toppings || "Ninguno"}
+            Incluir Cubiertos: ${cubiertos}
+            Instrucciones Especiales: ${instrucciones || "Ninguna"}`;
+        const messageLines = message.split("\n");
+        const messageObject = {};
+        let counter = 0;
+        
+        for (const line of messageLines) {
+          const parts = line.split(": ");
+          messageObject[parts[0]] = parts[1];
+          counter++;
+          messageObject[parts[0]] += `-${counter}`;    
+    }
+        // Crear un elemento contenedor
+const listaElementos = document.createElement("div");
+listaElementos.classList.add("lista-elementos");
 
-        alert(message);
+// Recorrer el array de objetos
+for (const propiedad in messageObject) {
+  // Crear un elemento para cada objeto
+  const elemento = document.createElement("div");
+  elemento.classList.add("elemento");
+
+  // Agregar el contenido de las propiedades del objeto al elemento
+  const contenido = document.createTextNode(
+    `${propiedad}: ${messageObject[propiedad]}`
+  );
+  elemento.appendChild(contenido);
+
+  // Agregar un botón de borrar a cada elemento
+  const botonBorrar = document.createElement("button");
+  botonBorrar.classList.add("boton-borrar");
+  botonBorrar.textContent = "Borrar";
+  botonBorrar.addEventListener("click", function () {
+    // Eliminar el elemento de la lista
+    listaElementos.removeChild(elemento);
+
+    // Eliminar el elemento del array de objetos
+    delete messageObject[propiedad];
+  });
+  elemento.appendChild(botonBorrar);
+
+  // Agregar el elemento al contenedor
+  listaElementos.appendChild(elemento);
+}
+
+// Mostrar el contenedor en la página
+document.body.appendChild(listaElementos);
+
     }
 });

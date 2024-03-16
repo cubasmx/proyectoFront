@@ -20,5 +20,27 @@ const formulario = document.getElementById('orderForm');
         }
       
         function mostrarRespuesta(respuestas) {
-          respuestasContainer.innerHTML = respuestas;
+          const respuestasTabla = document.querySelector(".respuestas-tabla tbody");
+          respuestasTabla.innerHTML = ""; // Limpia las filas existentes
+        
+          const respuestasArray = respuestas.split("<br>");
+          for (const respuesta of respuestasArray) {
+            const fila = document.createElement("tr");
+        
+            const celdaRespuesta = document.createElement("td");
+            celdaRespuesta.textContent = respuesta;
+        
+            const celdaEliminar = document.createElement("td");
+            const botonEliminar = document.createElement("button");
+            botonEliminar.textContent = "Eliminar";
+            botonEliminar.addEventListener("click", () => {
+              fila.parentNode.removeChild(fila);
+            });
+            celdaEliminar.appendChild(botonEliminar);
+        
+            fila.appendChild(celdaRespuesta);
+            fila.appendChild(celdaEliminar);
+        
+            respuestasTabla.appendChild(fila);
+          }
         }

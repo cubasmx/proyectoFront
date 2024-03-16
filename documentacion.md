@@ -11,3 +11,7 @@ Después habrá que crear documnetación apoyada de capturas de pantalla y una c
 
 Primero hice pruebas básicas con un formulario más simple. Pedí a ChatGPT que me hicera una plantilla muy sencilla y la corrí en mi servidor privado y tras un poco de prueba y error, conseguí que se visualizara como deseé. Al principio el error que cometía el script era querer generar un bloque nuevo de manera dinámica cada que se actualizada cualquier aspecto del campo que se rellenaba, así al escribir una sola letra esta nueva versión de la variable quedaba impresa en otro campo distinto (o bloque distinto) y eso evidentemente no era lo que buscábamos. Tras unas correcciones logré hacer que se generaba en un solo bloque toda la información de un campo.
 
+## Versión alfa 0.1
+
+Voy a agregar un botón para borrar contenido de la lista de respuestas.
+
